@@ -1,7 +1,7 @@
 __author__ = 'Daniel'
 
 import unittest
-from Question import *
+from question import *
 
 
 class TestQuestionMethods(unittest.TestCase):

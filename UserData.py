@@ -32,11 +32,17 @@ def gen_default_config_file():
     config.add_section('General')
     config.set('General', 'SHOW_TIMER', 'true')
     config.set('General', 'PAUSE_AFTER_QUESTION', 'false')
+    config.add_section('Debug')
+    config.set("Debug", 'Mode', 'false')
     with open(_config_file, 'w') as f:
         config.write(f)
 
 def read_config_file():
-    config.read(_config_file)
+    try:
+        open(_config_file)
+        config.read(_config_file)
+    except FileNotFoundError as e:
+        raise e
 
 try:
     read_config_file()

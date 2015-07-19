@@ -1,7 +1,7 @@
 __author__ = 'Daniel'
 
 from random import randint, randrange
-from Question import *
+from question import *
 from time import clock
 from UserData import *
 
@@ -38,6 +38,7 @@ class Game:
         self.start_time = 0
         self.end_time = 0
         self.set_history()
+        self.question_generator = None
 
     def set_history(self):
         """
@@ -77,8 +78,8 @@ class Game:
     def solve_question(self, user_input):
         """
         Take a user input and check whether it solves the current question
-        :param user_input:
-        :return:
+        :param user_input:int
+        :return:(is_user_correct, solution, time_taken)
         """
         if self.current_question is None:
             raise NoQuestionException

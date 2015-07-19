@@ -5,7 +5,7 @@ __author__ = 'Daniel'
 import os
 from UIController import AbstractController
 from utility import *
-from Question import Operation
+from question import Operation
 from UserData import config
 
 

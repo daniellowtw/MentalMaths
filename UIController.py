@@ -2,10 +2,12 @@ __author__ = 'Daniel'
 
 from enum import Enum
 
+
 class AbstractController:
     """
     An abstract class for a controller to the game
     """
+
     class QuestionAction(Enum):
         QUIT = 'q'
         SAVE = 's'
@@ -17,3 +19,8 @@ class AbstractController:
         HISTORY = 'h'
         TRAINING = 't'
 
+    def __init__(self, game):
+        self.game = game
+
+    def run(self):
+        raise NotImplementedError

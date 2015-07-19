@@ -2,11 +2,13 @@ __author__ = 'Daniel'
 
 from enum import Enum
 
+
 class Operation(Enum):
     ADDITION = 0
     SUBTRACTION = 1
     MULTIPLICATION = 2
     DIVISION = 3
+
 
 class Question:
     def __hash__(self):
@@ -20,11 +22,11 @@ class Question:
         c = other.operation_value == self.operation_value
         return all([a, b, c])
 
-    def __init__(self, op1:int, operation_type_value:int, op2:int):
+    def __init__(self, op1, operation_type_value, op2):
         """
-        :param op1: Integer value
-        :param operation_type_value: An Operation type value
-        :param op2:
+        :param op1:int Integer value
+        :param operation_type_value:int An Operation type value
+        :param op2:int
         :return:
         """
         self.op1 = op1
@@ -47,4 +49,12 @@ class Question:
     @staticmethod
     def get_question_string(op1, op_type_value, op2):
         symbol = list("+-*/")
-        return "%i %s %i\n" % (op1, symbol[op_type_value], op2)
+        return "%i %s %i" % (op1, symbol[op_type_value], op2)
+
+
+class AbstractQuestionGenerator:
+    def __init__(self):
+        pass
+
+    def gen_next_question(self):
+        raise NotImplementedError
